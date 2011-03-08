@@ -1,0 +1,23 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  title: MyString
+  paper_size: MyString
+  orientation: MyString
+  include_index: false
+  left: 0.123
+  right: 0.123
+  top: 0.123
+  bottom: 0.123
+  categories: MyText
+
+two:
+  title: MyString
+  paper_size: MyString
+  orientation: MyString
+  include_index: false
+  left: 0.123
+  right: 0.123
+  top: 0.123
+  bottom: 0.123
+  categories: MyText

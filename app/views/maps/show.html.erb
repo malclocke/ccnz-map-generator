@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @map.title %>
+</p>
+
+<p>
+  <b>Paper size:</b>
+  <%= @map.paper_size %>
+</p>
+
+<p>
+  <b>Orientation:</b>
+  <%= @map.orientation %>
+</p>
+
+<p>
+  <b>Include index:</b>
+  <%= @map.include_index %>
+</p>
+
+<%= render :partial => 'map', :object => @map %>
+
+<p>
+  <b>Geographic area:</b>
+  <%= @map.bounds %>
+</p>
+
+<p>
+  <b>Categories:</b>
+  <%= @map.categories.map(&:title).to_sentence %>
+</p>
+
+
+<%= link_to 'Edit', edit_map_path(@map) %> |
+<%= link_to 'Back', maps_path %>

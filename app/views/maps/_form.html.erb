@@ -1,0 +1,60 @@
+<%= form_for(@map) do |f| %>
+  <% if @map.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@map.errors.count, "error") %> prohibited this map from being saved:</h2>
+
+      <ul>
+      <% @map.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :paper_size %><br />
+    <%= f.select :paper_size, Map::PAPER_SIZES %>
+  </div>
+  <div class="field">
+    <%= f.label :orientation %><br />
+    <%= f.select :orientation, Map::ORIENTATIONS %>
+  </div>
+  <div class="field">
+    <%= f.label :include_index %><br />
+    <%= f.check_box :include_index %>
+  </div>
+  <%= render :partial => 'map', :object => @map %>
+  <script type="text/javascript">
+    function updateBoundsForm() {
+      bounds = map.getExtent().transform(map.getProjectionObject(), new OpenLayers.Projection("EPSG:4326"));
+      document.getElementById('map_left').value = bounds.left;
+      document.getElementById('map_top').value = bounds.top;
+      document.getElementById('map_right').value = bounds.right;
+      document.getElementById('map_bottom').value = bounds.bottom;
+    }
+    map.events.register('zoomend', map, updateBoundsForm); 
+    map.events.register('moveend', map, updateBoundsForm); 
+  </script>
+  <div class="field">
+    <%= f.label :left %>
+    <%= f.text_field :left, :size => 12 %>
+    <%= f.label :top %>
+    <%= f.text_field :top, :size => 12 %>
+    <%= f.label :right %>
+    <%= f.text_field :right, :size => 12 %>
+    <%= f.label :bottom %>
+    <%= f.text_field :bottom, :size => 12 %>
+  </div>
+  <div class="field">
+    <%= f.label :category_ids %><br />
+    <%= f.collection_select :category_ids, Category.all.sort_by(&:title),
+                            :id, :title, {}, :multiple => true %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

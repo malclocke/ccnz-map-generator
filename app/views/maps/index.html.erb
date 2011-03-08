@@ -1,0 +1,33 @@
+<h1>Listing maps</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Paper size</th>
+    <th>Orientation</th>
+    <th>Include index</th>
+    <th>Bounds</th>
+    <th>Categories</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @maps.each do |map| %>
+  <tr>
+    <td><%= map.title %></td>
+    <td><%= map.paper_size %></td>
+    <td><%= map.orientation %></td>
+    <td><%= map.include_index %></td>
+    <td><%= map.bounds %></td>
+    <td><%= map.categories %></td>
+    <td><%= link_to 'Show', map %></td>
+    <td><%= link_to 'Edit', edit_map_path(map) %></td>
+    <td><%= link_to 'Destroy', map, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Map', new_map_path %>

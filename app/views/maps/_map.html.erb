@@ -1,0 +1,11 @@
+<div id="map" style="width:600px;height:600px;"></div>
+<script type="text/javascript">
+  var map = new OpenLayers.Map('map');
+  map.addLayer(new OpenLayers.Layer.OSM());
+  bounds = new OpenLayers.Bounds();
+  bounds.extend(new OpenLayers.LonLat(<%= map.left %>, <%= map.top %>)
+      .transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject()));
+  bounds.extend(new OpenLayers.LonLat(<%= map.right %>, <%= map.bottom %>)
+      .transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject()));
+  map.zoomToExtent(bounds);
+</script>
