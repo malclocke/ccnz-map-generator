@@ -12,3 +12,7 @@ Factory.define :category do |c|
   c.color '000000'
   c.icon 'http://localhost:3000/img/icon.png'
 end
+
+Factory.define :map_render do |mr|
+  mr.association :map
+end

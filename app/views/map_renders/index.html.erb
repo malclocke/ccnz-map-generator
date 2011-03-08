@@ -1,0 +1,27 @@
+<h1>Listing map_renders</h1>
+
+<table>
+  <tr>
+    <th>Map</th>
+    <th>Complete</th>
+    <th>Url</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @map_renders.each do |map_render| %>
+  <tr>
+    <td><%= map_render.map %></td>
+    <td><%= map_render.complete %></td>
+    <td><%= map_render.url %></td>
+    <td><%= link_to 'Show', map_render %></td>
+    <td><%= link_to 'Edit', edit_map_render_path(map_render) %></td>
+    <td><%= link_to 'Destroy', map_render, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Map render', new_map_render_path %>

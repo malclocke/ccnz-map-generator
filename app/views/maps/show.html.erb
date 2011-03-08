@@ -2,22 +2,32 @@
 
 <h1><%= @map.title %></h1>
 
+<h2>Downloads</h2>
+<%= button_to('Regenerate this map', map_map_renders_path(@map, :method => :post)) %>
+<ul>
+<% @map.map_renders.each do |map_render| %>
+  <li>
+  <% if map_render.complete %>
+    <%= link_to map_render.created_at, map_render.url %>
+  <% elsif map_render.started %>
+    <%= map_render.created_at %> - Render in progress ...
+  <% else %>
+    <%= map_render.created_at %> - Awaiting render ...
+  <% end %>
+  </li>
+<% end %>
+</ul>
+
+<%= render :partial => 'map', :object => @map %>
+
 <p>
   <b>Paper size:</b>
   <%= @map.paper_size %>
-</p>
-
-<p>
   <b>Orientation:</b>
   <%= @map.orientation %>
-</p>
-
-<p>
   <b>Include index:</b>
   <%= @map.include_index %>
 </p>
-
-<%= render :partial => 'map', :object => @map %>
 
 <p>
   <b>Geographic area:</b>
@@ -28,7 +38,6 @@
   <b>Categories:</b>
   <%= @map.categories.map(&:title).to_sentence %>
 </p>
-
 
 <%= link_to 'Edit', edit_map_path(@map) %> |
 <%= link_to 'Back', maps_path %>

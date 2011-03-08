@@ -26,4 +26,10 @@ class MapTest < ActiveSupport::TestCase
       assert !Factory.build(:map, bound => nil).save
     end
   end
+
+  test "should create a map render on create" do
+    assert_difference 'MapRender.count', 1 do
+      Factory.create(:map)
+    end
+  end
 end

@@ -1,0 +1,2 @@
+module MapRendersHelper
+end

@@ -13,8 +13,16 @@ class Map < ActiveRecord::Base
     end
   end
 
+  has_many :map_renders
+  # Create a new render on first request
+  after_create :generate_first_render
+
   # Return map bounds in a human readable form
   def bounds
     "#{top},#{left}:#{bottom},#{right}"
+  end
+
+  def generate_first_render
+    map_renders.create!
   end
 end

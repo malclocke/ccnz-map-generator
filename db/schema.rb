@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110307100951) do
+ActiveRecord::Schema.define(:version => 20110308061133) do
 
   create_table "categories", :force => true do |t|
     t.string   "title"
@@ -24,6 +24,14 @@ ActiveRecord::Schema.define(:version => 20110307100951) do
   create_table "categories_maps", :id => false, :force => true do |t|
     t.integer "category_id"
     t.integer "map_id"
+  end
+
+  create_table "map_renders", :force => true do |t|
+    t.integer  "map_id"
+    t.string   "status",     :default => "pending"
+    t.string   "url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "maps", :force => true do |t|

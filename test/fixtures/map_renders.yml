@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  map: 
+  status: 'pending'
+  url: MyString
+
+two:
+  map: 
+  status: pending
+  url: MyString

@@ -1,0 +1,29 @@
+<%= form_for(@map_render) do |f| %>
+  <% if @map_render.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@map_render.errors.count, "error") %> prohibited this map_render from being saved:</h2>
+
+      <ul>
+      <% @map_render.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :map %><br />
+    <%= f.text_field :map %>
+  </div>
+  <div class="field">
+    <%= f.label :complete %><br />
+    <%= f.check_box :complete %>
+  </div>
+  <div class="field">
+    <%= f.label :url %><br />
+    <%= f.text_field :url %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

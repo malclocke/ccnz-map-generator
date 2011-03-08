@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Map:</b>
+  <%= @map_render.map %>
+</p>
+
+<p>
+  <b>Complete:</b>
+  <%= @map_render.complete %>
+</p>
+
+<p>
+  <b>Url:</b>
+  <%= @map_render.url %>
+</p>
+
+
+<%= link_to 'Edit', edit_map_render_path(@map_render) %> |
+<%= link_to 'Back', map_renders_path %>

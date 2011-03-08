@@ -1,5 +1,9 @@
 Mapgen::Application.routes.draw do
-  resources :maps
+  resources :map_renders
+
+  resources :maps do
+    resources :map_renders
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
