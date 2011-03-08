@@ -25,6 +25,7 @@ These parameters are as follows:
   update the render status on completion.  An integer.
 * `left_lon`, `top_lat`, `right_lon`, `bot_lat` - The bounding box of the map
 * `paper_size` - The paper size to render, e.g. `a4`
+* `orientation` - The paper orientation, `landscape` or `portrait`
 * `include_index` - Whether to include the index, either `true` or `false`
 * `categories` - A comma separated list of category ids from http://eq.org.nz/
 * `title` - The map title
