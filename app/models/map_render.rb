@@ -29,7 +29,7 @@ class MapRender < ActiveRecord::Base
     save!
     logger.debug render_command
     if Rails.env == 'production'
-      exec "cd #{RENDER_WORK_DIR} && #{render_command}"
+      system "cd #{RENDER_WORK_DIR} && #{render_command}"
     end
     self.status = 'complete'
     save!
