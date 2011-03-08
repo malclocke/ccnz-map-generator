@@ -8,7 +8,7 @@
 <% @map.map_renders.each do |map_render| %>
   <li>
   <% if map_render.complete %>
-    <%= link_to map_render.created_at, map_render.url %>
+    <%= link_to map_render.created_at, map_render.pdf_url %>
   <% elsif map_render.started %>
     <%= map_render.created_at %> - Render in progress ...
   <% else %>

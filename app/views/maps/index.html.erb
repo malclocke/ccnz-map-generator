@@ -18,7 +18,7 @@
     <td><%= map.categories %></td>
     <td>
       <% if map.map_renders.first && map.map_renders.first.complete %>
-        <%= link_to map.map_renders.first.created_at, map.map_renders.first.url %>
+        <%= link_to map.map_renders.first.created_at, map.map_renders.first.pdf_url %>
       <% else %>
         Currently being generated ...
       <% end %>

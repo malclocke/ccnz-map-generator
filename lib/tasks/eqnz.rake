@@ -11,4 +11,12 @@ namespace :eqnz do
       category.update_attributes! attributes
     end
   end
+
+  desc "render pending maps"
+  task :render => :environment do
+    MapRender.where(:status => 'pending').each do |mr|
+      puts "Rendering #{mr.filename}"
+      mr.render
+    end
+  end
 end
