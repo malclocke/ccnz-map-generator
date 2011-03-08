@@ -3,11 +3,9 @@
 <table>
   <tr>
     <th>Title</th>
-    <th>Paper size</th>
-    <th>Orientation</th>
-    <th>Include index</th>
-    <th>Bounds</th>
+    <th>Size</th>
     <th>Categories</th>
+    <th>Download</th>
     <th></th>
     <th></th>
     <th></th>
@@ -17,10 +15,14 @@
   <tr>
     <td><%= map.title %></td>
     <td><%= map.paper_size %></td>
-    <td><%= map.orientation %></td>
-    <td><%= map.include_index %></td>
-    <td><%= map.bounds %></td>
     <td><%= map.categories %></td>
+    <td>
+      <% if map.map_renders.first && map.map_renders.first.complete %>
+        <%= link_to map.map_renders.first.created_at, map.map_renders.first.url %>
+      <% else %>
+        Currently being generated ...
+      <% end %>
+    </td>
     <td><%= link_to 'Show', map %></td>
     <td><%= link_to 'Edit', edit_map_path(map) %></td>
     <td><%= link_to 'Destroy', map, :confirm => 'Are you sure?', :method => :delete %></td>
