@@ -3,3 +3,25 @@
   border: 2px solid #eee;
   margin-bottom: 0.3em;
 }
+
+.buttonlink a {
+  background: url("http://eq.org.nz/themes/ccnz/images/submit-incident.png") no-repeat scroll 10px 1px transparent;
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: bold;
+  margin: 8px 0;
+  padding: 0 10px 0 35px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.buttonlink a:hover {
+  color: black;
+}
+
+.buttonlink {
+  background-color: #FE1409;
+  background-image: -moz-linear-gradient(center bottom , #8B261B 10%, #EE1D19 80%);
+  margin: 1em 0;
+  padding: 0.4em;
+  display: inline-block;
+}

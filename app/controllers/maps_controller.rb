@@ -2,7 +2,7 @@ class MapsController < ApplicationController
   # GET /maps
   # GET /maps.xml
   def index
-    @maps = Map.all
+    @maps = Map.all :order => 'title'
 
     respond_to do |format|
       format.html # index.html.erb

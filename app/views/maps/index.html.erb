@@ -1,5 +1,9 @@
 <h1>Listing maps</h1>
 
+<div class="buttonlink">
+  <%= link_to 'New Map', new_map_path %>
+</div>
+
 <% @maps.each do |map| %>
   <div id="map_<%= map.id %>" class="mapdetails">
     <h3><%= link_to map.title, map %></h3>
@@ -16,5 +20,3 @@
     </div>
   </div>
 <% end %>
-
-<%= link_to 'New Map', new_map_path %>
