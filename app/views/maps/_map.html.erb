@@ -1,6 +1,10 @@
 <div id="map" style="width:600px;height:600px;"></div>
 <script type="text/javascript">
+  <% if defined?(editable) && editable %>
   var map = new OpenLayers.Map('map');
+  <% else %>
+  var map = new OpenLayers.Map('map', {controls:[]});
+  <% end %>
   map.addLayer(new OpenLayers.Layer.OSM());
   bounds = new OpenLayers.Bounds();
   bounds.extend(new OpenLayers.LonLat(<%= map.left %>, <%= map.top %>)

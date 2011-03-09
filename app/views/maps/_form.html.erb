@@ -27,7 +27,7 @@
     <%= f.label :include_index %><br />
     <%= f.check_box :include_index %>
   </div>
-  <%= render :partial => 'map', :object => @map %>
+  <%= render :partial => 'map', :object => @map, :locals => {:editable => true} %>
   <script type="text/javascript">
     function updateBoundsForm() {
       bounds = map.getExtent().transform(map.getProjectionObject(), new OpenLayers.Projection("EPSG:4326"));
