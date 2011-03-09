@@ -4,7 +4,6 @@
   <tr>
     <th>Title</th>
     <th>Size</th>
-    <th>Categories</th>
     <th>Download</th>
     <th></th>
     <th></th>
@@ -13,15 +12,10 @@
 
 <% @maps.each do |map| %>
   <tr>
-    <td><%= map.title %></td>
+    <td><%= link_to map.title, map %></td>
     <td><%= map.paper_size %></td>
-    <td><%= map.categories %></td>
     <td>
-      <% if map.map_renders.first && map.map_renders.first.complete %>
-        <%= link_to map.map_renders.first.created_at, map.map_renders.first.pdf_url %>
-      <% else %>
-        Currently being generated ...
-      <% end %>
+      <%= render map.map_renders.first if map.map_renders.first %>
     </td>
     <td><%= link_to 'Show', map %></td>
     <td><%= link_to 'Edit', edit_map_path(map) %></td>

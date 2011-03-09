@@ -1,10 +1,10 @@
 <% div_for map_render do %>
   <% if map_render.complete %>
-    <%= link_to map_render.created_at, map_render.pdf_url %>
+    <%= image_tag 'map.png' %> <%= link_to map_render.created_at, map_render.pdf_url %>
   <% elsif map_render.started %>
-    <%= map_render.created_at %> - Render in progress ...
+    <%= image_tag 'ajax-loader.gif' %> <%= map_render.created_at %> - Render in progress ...
   <% else %>
-    <%= map_render.created_at %> - Awaiting render ...
+    <%= image_tag 'ajax-loader.gif' %> <%= map_render.created_at %> - Awaiting render ...
   <% end %>
   <% unless map_render.complete %>
     <script type="text/javascript">
