@@ -1,0 +1,3 @@
+$('#map_render_<%= @map_render.id %>').replaceWith(
+  '<%= escape_javascript(render(@map_render, :format => 'html')) %>'
+);

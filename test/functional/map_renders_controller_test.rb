@@ -29,6 +29,11 @@ class MapRendersControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  test "should show map_render in js format" do
+    get :show, :id => @map_render.to_param, :format => 'js'
+    assert_response :success
+  end
+
   test "should get edit" do
     get :edit, :id => @map_render.to_param
     assert_response :success

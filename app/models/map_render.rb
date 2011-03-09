@@ -10,6 +10,8 @@ class MapRender < ActiveRecord::Base
 
   default_scope order("created_at DESC").limit(5)
 
+  after_create :render
+
   def to_s
     "#{id} #{map.left} #{map.top} #{map.right} #{map.bottom} #{map.paper_size} #{map.orientation} #{map.include_index} #{map.category_ids.join(',')} #{map.title}"
   end
@@ -34,6 +36,8 @@ class MapRender < ActiveRecord::Base
     self.status = 'complete'
     save!
   end
+  # Always use delayed_job to run this
+  handle_asynchronously :render
 
   def index_style
     return "plain" unless map.include_index?

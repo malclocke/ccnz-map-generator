@@ -1,0 +1,16 @@
+<% div_for map_render do %>
+  <% if map_render.complete %>
+    <%= link_to map_render.created_at, map_render.pdf_url %>
+  <% elsif map_render.started %>
+    <%= map_render.created_at %> - Render in progress ...
+  <% else %>
+    <%= map_render.created_at %> - Awaiting render ...
+  <% end %>
+  <% unless map_render.complete %>
+    <script type="text/javascript">
+      setTimeout(function() {
+        $.getScript('<%= map_render_path(map_render, :format => 'js') %>');
+      }, 5000);
+    </script>
+  <% end %>
+<% end %>

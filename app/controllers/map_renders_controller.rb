@@ -11,6 +11,15 @@ class MapRendersController < ApplicationController
     end
   end
 
+  # GET /map_renders/1.js
+  def show
+    @map_render = MapRender.find(params[:id])
+
+    respond_to do |format|
+      format.js
+    end
+  end
+
   # PUT /map_renders/1
   # PUT /map_renders/1.xml
   def update

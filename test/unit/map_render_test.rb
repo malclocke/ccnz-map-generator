@@ -20,4 +20,10 @@ class MapRenderTest < ActiveSupport::TestCase
     assert_equal "#{@map_render.id} 170.0 -43.0 171.0 -44.0 a4 portrait true #{category_ids} Test Map",
       @map_render.to_s
   end
+
+  test "should schedule a render job on creation" do
+    assert_difference 'Delayed::Job.count' do
+      Factory.create :map_render
+    end
+  end
 end
