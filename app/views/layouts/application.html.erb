@@ -1,16 +1,148 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Mapgen</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>Christchurch Recovery Map</title> 
+  <meta name="description" content="Community information for the Christchurch Earthquake of 22 Feb 2011"> 
+  <meta name="author" content="CrisisCampNZ"> 
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" type="text/css" href="http://eq.org.nz/themes/ccnz/css/style.css" /> 
+  <link rel="stylesheet" type="text/css" href="http://eq.org.nz/media/css/jquery-ui-themeroller.css" /> 
+  <!--[if lte IE 7]><link rel="stylesheet" type="text/css" href="http://eq.org.nz/media/css/iehacks.css" />
+  <![endif]--><!--[if IE 7]><link rel="stylesheet" type="text/css" href="http://eq.org.nz/media/css/ie7hacks.css" />
+  <![endif]--><!--[if IE 6]><link rel="stylesheet" type="text/css" href="http://eq.org.nz/media/css/ie6hacks.css" />
+  <![endif]--><link rel="stylesheet" type="text/css" href="http://eq.org.nz/media/css/openlayers.css" /> 
+  <link rel="stylesheet" type="text/css" href="http://eq.org.nz/plugins/fullscreenmap/views/css/fullscreenmap.css" /><link rel="stylesheet" type="text/css" href="http://eq.org.nz/plugins/fullscreenmap/views/css/colorbox.css" /><link rel="alternate" type="application/rss+xml" href="http://eq.org.nz/feed/" title="RSS2" /><script type="text/javascript" src="http://eq.org.nz/media/js/OpenLayers.js"></script> 
+  <link rel="shortcut icon" href="http://eq.org.nz/favicon.ico">
+  <link rel="apple-touch-icon" href="http://eq.org.nz/apple-touch-icon.png">
   <%= stylesheet_link_tag :all %>
   <%= javascript_include_tag :defaults %>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
   <script src="http://www.openlayers.org/api/OpenLayers.js"></script>
   <%= csrf_meta_tag %>
 </head>
-<body>
+<body id="page"><div id="cboxOverlay" style="display: none; "></div><div id="colorbox" class="" style="padding-bottom: 42px; padding-right: 42px; display: none; "><div id="cboxWrapper"><div><div id="cboxTopLeft" style="float: left; "></div><div id="cboxTopCenter" style="float: left; "></div><div id="cboxTopRight" style="float: left; "></div></div><div style="clear:left"><div id="cboxMiddleLeft" style="float: left; "></div><div id="cboxContent" style="float: left; "><div id="cboxLoadedContent" style="width: 0px; height: 0px; overflow-x: hidden; overflow-y: hidden; " class=""></div><div id="cboxLoadingOverlay" class=""></div><div id="cboxLoadingGraphic" class=""></div><div id="cboxTitle" class=""></div><div id="cboxCurrent" class=""></div><div id="cboxNext" class=""></div><div id="cboxPrevious" class=""></div><div id="cboxSlideshow" class=""></div><div id="cboxClose" class=""></div></div><div id="cboxMiddleRight" style="float: left; "></div></div><div style="clear:left"><div id="cboxBottomLeft" style="float: left; "></div><div id="cboxBottomCenter" style="float: left; "></div><div id="cboxBottomRight" style="float: left; "></div></div></div><div style="position:absolute; width:9999px; visibility:hidden; display:none"></div></div>
+	<!-- wrapper -->
+	<div class="rapidxwpr floatholder">
 
-<%= yield %>
+		<!-- header -->
+		<div id="header">
 
+			<!-- searchbox -->
+			<div id="searchbox">
+					<ul class="useful_links">
+						<li><a class="skip-link" href="http://eq.org.nz/#main" title="Skip to content" accesskey="[">Skip to content</a></li>						
+						<li>Useful Links:</li>
+						<li><a href="http://eq.org.nz/page/index/2">Google Person Finder</a></li><li><a href="http://eq.org.nz/page/index/3">Accommodation</a></li><li><a href="http://eq.org.nz/page/index/4">Student Volunteer Army</a></li><li><a href="http://eq.org.nz/page/index/5">Business</a></li>					</ul>
+
+				<!-- searchform -->
+				<div class="search-form"><form method="get" id="search" action="http://eq.org.nz/search/"><ul><li><input type="text" name="k" value="" class="text"></li><li><input type="submit" name="b" class="searchbtn" value="search"></li></ul></form></div>				<!-- / searchform -->
+
+			</div>
+			<!-- / searchbox -->
+			
+			<!-- logo -->
+			<div id="logo">
+				<h1><a href="http://eq.org.nz/">Christchurch Recovery Map</a></h1>
+				<span>Community information for the Christchurch Earthquake of 22 Feb 2011.</span>
+			</div>
+			<!-- / logo -->
+			
+			<!-- submit incident -->
+			<div class="submit-incident clearingfix"><a href="http://eq.org.nz/reports/submit">Submit a Report</a></div>			<!-- / submit incident -->
+			
+		</div>
+		<!-- / header -->
+
+		<!-- main body -->
+		<div id="middle">
+			<div class="background layoutleft">
+
+				<!-- mainmenu -->
+				<div id="mainmenu" class="clearingfix">
+					<ul>
+						<li><a style="background: #c7201a;" href="http://eq.org.nz/main">Main Home</a></li><li><a href="http://maps.eq.org.nz/">Maps</a></li><li><a class="active" href="http://maps.eq.org.nz/print">Printable Maps</a></li><li><a href="http://maps.eq.org.nz/kml">KML Exports</a></li></ul>
+
+				</div>
+				<!-- / mainmenu -->
+
+        <!-- main body -->
+        <div id="main" class="clearingfix">
+            <div id="mainmiddle" class="floatbox withright">
+
+                <!-- content column -->
+                <div id="content" class="clearingfix">
+                    <div class="floatbox">
+                      <%= yield %>
+                    </div>
+                    <!-- / floatbox -->
+                </div>
+                <!-- / content column -->
+
+            </div>
+        </div>
+        <!-- / main body -->
+
+			</div>
+		</div>
+		<!-- / main body -->
+
+	</div>
+	<!-- / wrapper -->
+	
+	<!-- footer -->
+	<div id="footer" class="clearingfix">
+ 
+		<div id="underfooter"></div>
+				
+		<!-- footer content -->
+		<div class="rapidxwpr floatholder">
+ 
+			<!-- footer credits -->
+			<div class="footer-credits">
+				Powered by the &nbsp;<a href="http://www.ushahidi.com/"><img src="http://eq.org.nz//media/img/footer-logo.png" alt="Ushahidi" style="vertical-align:middle"></a>&nbsp; Platform
+			</div>
+			<!-- / footer credits -->
+		
+			<!-- footer menu --> 
+			<div class="footermenu"> 
+				<ul class="clearingfix"> 
+					<li><a class="item1" href="http://eq.org.nz/">Home</a></li> 
+					<li><a href="http://eq.org.nz/reports/submit">Submit a Report</a></li> 
+					<li><a href="http://eq.org.nz/alerts">Get Alerts</a></li> 
+					<li><a href="http://eq.org.nz/contact">Contact Us</a></li> 
+									</ul> 
+				      		<p>The content of this site is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/nz/">Creative Commons Attribution 3.0 New Zealand License</a>. To satisfy attribution requirements, include "Source: http://eq.org.nz"
+in your derived content.
+ 
+This website is provided as is, and your use of it is <strong>exclusively at your own risk</strong>. You are solely responsible for any liability, loss, injury or risk which is incurred as a direct or indirect result of the use of any of the content or information on this website and/or any website linked to from this website.</p> 
+      				</div> 
+			<!-- / footer menu --> 
+
+      
+			<h2 class="feedback_title" style="clear:both">
+				<a href="http://feedback.ushahidi.com/fillsurvey.php?sid=2">Provide Feedback</a>
+			</h2>
+
+ 
+		</div>
+		<!-- / footer content -->
+ 
+	</div>
+	<!-- / footer -->
+	
+	  <!--[if lt IE 7 ]>
+	    <script src="js/libs/dd_belatedpng.js"></script>
+	    <script> DD_belatedPNG.fix('img, .png_bg'); </script>
+	  <![endif]-->
+
+		<!-- Piwik --><script type="text/javascript">$(document).ready(function(){$('#piwik').load('http://tracker.ushahidi.com/piwik/piwik.php?idsite=13005&rec=1');});</script><div id="piwik"></div><!-- End Piwik Tag -->		
+		<!-- Task Scheduler -->
+		<!--<img src="http://eq.org.nz/media/img/spacer.gif" alt="" height="1" width="1" border="0" onload="runScheduler(this)" />-->
 </body>
 </html>

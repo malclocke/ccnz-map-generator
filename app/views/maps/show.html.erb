@@ -2,8 +2,9 @@
 
 <h1><%= @map.title %></h1>
 
-<h2>Downloads</h2>
 <%= button_to('Regenerate this map', map_map_renders_path(@map, :method => :post)) %>
+<hr>
+<h2>Downloads</h2>
 <ul>
 <% @map.map_renders.each do |map_render| %>
   <li>
@@ -11,6 +12,7 @@
   </li>
 <% end %>
 </ul>
+<hr>
 
 <%= render :partial => 'map', :object => @map %>
 

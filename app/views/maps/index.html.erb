@@ -1,29 +1,20 @@
 <h1>Listing maps</h1>
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Size</th>
-    <th>Download</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
 <% @maps.each do |map| %>
-  <tr>
-    <td><%= link_to map.title, map %></td>
-    <td><%= map.paper_size %></td>
-    <td>
-      <%= render map.map_renders.first if map.map_renders.first %>
-    </td>
-    <td><%= link_to 'Show', map %></td>
-    <td><%= link_to 'Edit', edit_map_path(map) %></td>
-    <td><%= link_to 'Destroy', map, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+  <div id="map_<%= map.id %>" class="mapdetails">
+    <h3><%= link_to map.title, map %></h3>
+    <div class="details">
+      <span>
+        <%= render map.map_renders.first if map.map_renders.first %>
+      </span>
+      <span class="hovershow">
+        Paper: <%= map.paper_size %></span>
+        <%= link_to 'Show', map %> |
+        <%= link_to 'Edit', edit_map_path(map) %> |
+        <%= link_to 'Destroy', map, :confirm => 'Are you sure?', :method => :delete %>
+      </span>
+    </div>
+  </div>
 <% end %>
-</table>
-
-<br />
 
 <%= link_to 'New Map', new_map_path %>
