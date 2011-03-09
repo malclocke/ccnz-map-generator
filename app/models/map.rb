@@ -7,6 +7,8 @@ class Map < ActiveRecord::Base
 
   validates_presence_of :title, :left, :right, :top, :bottom
 
+  validates_format_of :title, :with => /\A[\w.- ]+\z/
+
   has_and_belongs_to_many :categories do
     def to_s
       map(&:title).to_sentence
