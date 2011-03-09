@@ -25,3 +25,13 @@
   padding: 0.4em;
   display: inline-block;
 }
+
+.mapdetails .hovershow {
+  visibility: hidden;
+}
+.mapdetails:hover {
+  border: 2px solid #ccc;
+}
+.mapdetails:hover .hovershow {
+  visibility: visible;
+}
