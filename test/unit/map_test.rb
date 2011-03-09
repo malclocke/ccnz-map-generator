@@ -32,4 +32,9 @@ class MapTest < ActiveSupport::TestCase
       Factory.create(:map)
     end
   end
+
+  test "title cannot contain shell character" do
+    @map.title = "foo & bar\n"
+    assert !@map.save
+  end
 end
