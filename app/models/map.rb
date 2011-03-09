@@ -16,15 +16,16 @@ class Map < ActiveRecord::Base
   end
 
   has_many :map_renders
-  # Create a new render on first request
-  after_create :generate_first_render
+
+  # Create a new render whenever the map is changed
+  after_save :generate_render
 
   # Return map bounds in a human readable form
   def bounds
     "#{top},#{left}:#{bottom},#{right}"
   end
 
-  def generate_first_render
+  def generate_render
     map_renders.create!
   end
 end
